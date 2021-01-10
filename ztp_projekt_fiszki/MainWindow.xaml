@@ -1,0 +1,90 @@
+﻿<Window x:Class="ztp_projekt_fiszki.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ztp_projekt_fiszki"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="400">
+    <Grid>
+        <Grid Name="menu" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Name="startButton" Height="30" Width="180">Rozpocznij</Button>
+            <Button Name="settingsButton" Grid.Row="1" Height="30" Width="180">Opcje</Button>
+            <Button Name="highScoreButton" Grid.Row="2" Height="30" Width="180">Najlepsze wyniki</Button>
+            <Button Name="quitButton" Grid.Row="3" Height="30" Width="180">Wyjście</Button>
+        </Grid>
+
+
+        <Grid Name="settings" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5">Poziom trudności:</Label>
+            <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5">Wersja kolorystyczna</Label>
+            <Slider Name="difficultSetter" Grid.Column="1" VerticalAlignment="Center" Margin="5" IsSnapToTickEnabled="True" 
+                    ValueChanged="Difficult_ValueChanged" Maximum="2"></Slider>
+            <ComboBox Name="colorSetter" Grid.Row="1" Grid.Column="1" Margin="10" SelectionChanged="colorSetter_SelectionChanged"></ComboBox>
+            <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5">Sprawdzanie polskich znaków:</Label>
+            <CheckBox Name="specialSignsSetter" Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Center"></CheckBox>
+            <Button Grid.Column="1" Grid.Row="3" Margin="10" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Click="BackButton_Click">wróć</Button>
+            <CheckBox Name="diacriticalMarksCheck" Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Center"></CheckBox>
+        </Grid>
+
+        
+        <Grid Name="start" Visibility="Hidden">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Label VerticalAlignment="Center" HorizontalAlignment="Center">Wybierz tryb:</Label>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Height="25" Width="100">Nauka</Button>
+                <Button Height="25" Width="100" Grid.Column="1">Test</Button>
+            </Grid>
+            <Button Grid.Row="2" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10"
+                    Click="BackButton_Click">Wróć</Button>
+        </Grid>
+
+
+        <Grid Name="highscore">
+            
+        </Grid>
+        
+
+        <Grid Name="gameEasy">
+            
+        </Grid>
+
+        
+        <Grid Name="gameMedium">
+            
+        </Grid>
+
+        
+        <Grid Name="gameHard">
+            
+        </Grid>
+    </Grid>
+</Window>
