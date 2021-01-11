@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="200" Width="400">
     <Grid>
-        <Grid Name="menu" Visibility="Visible">
+        <Grid Name="menu" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -68,23 +68,98 @@
         </Grid>
 
 
-        <Grid Name="highscore">
-            
+        <Grid Name="highscore" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Label>Najlepsze wyniki</Label>
+            <ListBox Name="highscoreList" Margin="5,0,5,0" Grid.Row="1"></ListBox>
+            <Button Grid.Row="2" Height="20" Width="70" HorizontalAlignment="Right" Margin="5" Click="BackButton_Click">Wroć</Button>
         </Grid>
         
 
-        <Grid Name="gameEasy">
+        <Grid Name="gameEasy" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
             
+            <Label Name="questionNum">Pytanie 1/15</Label>
+            <Label Name="question" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">xxx</Label>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="answerEasy1" Margin="10"></Button>
+                <Button Name="answerEasy2" Grid.Column="1" Margin="10"></Button>
+                <Button Name="answerEasy3" Grid.Column="2" Margin="10"></Button>
+
+            </Grid>
+            <Button Name="playEasyBackButton" Grid.Row="3" Height="20" Width="70" HorizontalAlignment="Right" Margin="5" Click="BackButton_Click">Wroć</Button>
         </Grid>
 
         
-        <Grid Name="gameMedium">
-            
+        <Grid Name="gameMedium" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Label Name="questionNumMedium">Pytanie 1/15</Label>
+            <Label Name="questionMedium" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">xxx</Label>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="answerMedium1" Margin="5,10,5,10"></Button>
+                <Button Name="answerMedium2" Grid.Column="1" Margin="5,10,5,10"></Button>
+                <Button Name="answerMedium3" Grid.Column="2" Margin="5,10,5,10"></Button>
+                <Button Name="answerMedium4" Grid.Column="3" Margin="5,10,5,10"></Button>
+
+            </Grid>
+            <Button Name="playMediumBackButton" Grid.Row="3" Height="20" Width="70" HorizontalAlignment="Right" Margin="5" Click="BackButton_Click">Wroć</Button>
         </Grid>
 
-        
-        <Grid Name="gameHard">
-            
+
+        <Grid Name="gameHard" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Label Name="questionNumHard">Pytanie 1/15</Label>
+            <Label Name="questionHard" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">xxx</Label>
+            <Grid Grid.Row="2">
+                <TextBox Name="answerHard" Margin="40,10,40,10"></TextBox>
+            </Grid>
+            <Button Name="playHardBackButton" Grid.Row="3" Height="20" Width="70" HorizontalAlignment="Right" Margin="5" Click="BackButton_Click">Wroć</Button>
+        </Grid>
+
+        <Grid Name="gameOver">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Twój wynik to:</Label>
+            <Label Name="score" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">00/15</Label>
+            <Button Grid.Row="2" Height="20" Width="70" HorizontalAlignment="Center" Margin="5" Click="BackButton_Click">Wroć</Button>
         </Grid>
     </Grid>
 </Window>
