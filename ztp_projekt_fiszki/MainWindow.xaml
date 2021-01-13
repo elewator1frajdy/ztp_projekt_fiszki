@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:ztp_projekt_fiszki"
         mc:Ignorable="d"
         Title="MainWindow" Height="200" Width="400">
-    <Grid>
-        <Grid Name="menu" Visibility="Hidden">
+    
+    <Grid Name="mainGrid">
+        <Grid Name="menu" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -15,10 +16,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button Name="startButton" Height="30" Width="180">Rozpocznij</Button>
-            <Button Name="settingsButton" Grid.Row="1" Height="30" Width="180">Opcje</Button>
-            <Button Name="highScoreButton" Grid.Row="2" Height="30" Width="180">Najlepsze wyniki</Button>
-            <Button Name="quitButton" Grid.Row="3" Height="30" Width="180">Wyjście</Button>
+            <Button Name="startButton" Height="30" Width="180" Click="startButton_Click">Rozpocznij</Button>
+            <Button Name="settingsButton" Grid.Row="1" Height="30" Width="180" Click="settingsButton_Click">Opcje</Button>
+            <Button Name="highScoreButton" Grid.Row="2" Height="30" Width="180" Click="highScoreButton_Click">Najlepsze wyniki</Button>
+            <Button Name="quitButton" Grid.Row="3" Height="30" Width="180" Click="quitButton_Click">Wyjście</Button>
         </Grid>
 
 
@@ -39,10 +40,9 @@
                     ValueChanged="Difficult_ValueChanged" Maximum="2"></Slider>
             <ComboBox Name="colorSetter" Grid.Row="1" Grid.Column="1" Margin="10" SelectionChanged="colorSetter_SelectionChanged"></ComboBox>
             <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5">Sprawdzanie polskich znaków:</Label>
-            <CheckBox Name="specialSignsSetter" Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Center"></CheckBox>
             <Button Grid.Column="1" Grid.Row="3" Margin="10" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Click="BackButton_Click">wróć</Button>
-            <CheckBox Name="diacriticalMarksCheck" Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Center"></CheckBox>
+            <CheckBox Name="diacriticalMarksCheck" Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Center" Checked="diacriticalMarksCheck_Checked"></CheckBox>
         </Grid>
 
         
@@ -55,7 +55,7 @@
             </Grid.RowDefinitions>
 
             <Label VerticalAlignment="Center" HorizontalAlignment="Center">Wybierz tryb:</Label>
-            <Grid Grid.Row="1">
+            <Grid Name="startInside" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -89,8 +89,8 @@
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             
-            <Label Name="questionNum">Pytanie 1/15</Label>
-            <Label Name="question" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">xxx</Label>
+            <Label Name="questionNumEasy">Pytanie 1/15</Label>
+            <Label Name="questionEasy" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">xxx</Label>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -151,7 +151,7 @@
             <Button Name="playHardBackButton" Grid.Row="3" Height="20" Width="70" HorizontalAlignment="Right" Margin="5" Click="BackButton_Click">Wroć</Button>
         </Grid>
 
-        <Grid Name="gameOver">
+        <Grid Name="gameOver" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
