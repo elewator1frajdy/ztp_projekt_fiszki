@@ -26,6 +26,9 @@ namespace ztp_projekt_fiszki
         private string[] colorList = { "szary", "różowy", "niebieski", "zielony", "krejzolski" };
         public string settingsTxt;
         public bool isDiacriticalSigns;
+        public bool questionsCounting;
+
+        private Strategia s;
 
         public MainWindow()
         {
@@ -50,6 +53,11 @@ namespace ztp_projekt_fiszki
 
             colorSetter.ItemsSource = colorList;
             colorSetter.SelectedItem = colorList[color];
+        }
+
+        private void playMain()
+        {
+            s.play();
         }
 
         private void Difficult_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -293,6 +301,8 @@ namespace ztp_projekt_fiszki
                     item.Background = Brushes.Blue;
                 }
             }
+
+            // JESZCZE TRZEBA ZMIENIC W PLIKU
         }
 
         private void diacriticalMarksCheck_Checked(object sender, RoutedEventArgs e)
@@ -333,6 +343,34 @@ namespace ztp_projekt_fiszki
         private void quitButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender == naukaButton)
+                questionsCounting = true;
+            else
+                questionsCounting = false;
+
+            switch (difficult)
+            {
+                case 0:
+                    this.s = new Easy();
+                    gameEasy.Visibility = Visibility.Visible;
+                    break;
+
+                case 1:
+                    this.s = new Medium();
+                    gameMedium.Visibility = Visibility.Visible;
+                    break;
+
+                case 2:
+                    this.s = new Hard();
+                    gameHard.Visibility = Visibility.Visible;
+                    break;
+            }
+           
+            s.play();
         }
     }
 }

@@ -60,8 +60,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Height="25" Width="100">Nauka</Button>
-                <Button Height="25" Width="100" Grid.Column="1">Test</Button>
+                <Button Name="naukaButton" Height="25" Width="100"  Click="Start_Click">Nauka</Button>
+                <Button Name="testButton" Height="25" Width="100" Grid.Column="1" Click="Start_Click">Test</Button>
             </Grid>
             <Button Grid.Row="2" Height="20" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10"
                     Click="BackButton_Click">Wróć</Button>
